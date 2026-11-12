@@ -1,0 +1,16 @@
+[package]
+name = "sonora_portable_launcher"
+version = "1.0.0"
+description = "Zero-install portable launcher with atomic self-update swap for SONORA AI STUDIO"
+authors = ["Zaky Naufal A <kurcaci.zaky778@gmail.com>"]
+license = "MIT"
+edition = "2021"
+
+[[bin]]
+name = "SONORA-AI-Studio-Portable"
+path = "src/main.rs"
+
+[profile.release]
+opt-level = "z"
+lto = true
+strip = true

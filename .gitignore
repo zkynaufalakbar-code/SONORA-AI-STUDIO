@@ -1,0 +1,36 @@
+# Dependencies & Frontend builds
+node_modules/
+dist/
+dist-ssr/
+*.local
+tsconfig.tsbuildinfo
+*.tsbuildinfo
+
+# Rust / Tauri build outputs & generated schemas
+src-tauri/target/
+src-tauri/portable-launcher/target/
+src-tauri/gen/schemas/
+
+# Dual distribution packages (published via GitHub Releases)
+release/
+
+# Local runtime & portable folders (never track user or test state)
+config/
+cache/
+models/
+logs/
+exports/
+*.db
+*.db-wal
+*.db-shm
+*.peaks
+*.sonora
+
+# Secrets & OS / Editor files
+.env
+.env.*
+credentials.vault
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json

@@ -1,0 +1,60 @@
+[package]
+name = "sonora_ai_studio"
+version = "1.0.0"
+description = "SONORA AI STUDIO - Lightweight Professional Audio Editor with AI"
+authors = ["Zaky Naufal A <kurcaci.zaky778@gmail.com>"]
+license = "MIT"
+readme = "../README.md"
+repository = "https://github.com/zkynaufalakbar-code/SONORA-AI-STUDIO"
+homepage = "https://github.com/zkynaufalakbar-code/SONORA-AI-STUDIO"
+keywords = ["audio", "daw", "tauri", "ffmpeg", "ai"]
+categories = ["multimedia::audio", "gui"]
+edition = "2021"
+
+[lib]
+name = "sonora_ai_studio_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[[bin]]
+name = "SONORA-AI-Studio"
+path = "src/main.rs"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["protocol-asset"] }
+tauri-plugin-dialog = "2"
+tauri-plugin-fs = "2"
+tauri-plugin-shell = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+rusqlite = { version = "0.32", features = ["bundled"] }
+keyring = "3"
+cpal = "0.15"
+hound = "3.5"
+rustfft = "6.2"
+tokio = { version = "1", features = ["full"] }
+reqwest = { version = "0.12", default-features = false, features = ["rustls-tls", "stream", "json", "multipart"] }
+sha2 = "0.10"
+hex = "0.4"
+uuid = { version = "1", features = ["v4"] }
+chrono = { version = "0.4", features = ["serde"] }
+thiserror = "2"
+aes-gcm = "0.10"
+rand = "0.8"
+zip = "2.2"
+walkdir = "2"
+dirs = "5"
+base64 = "0.22"
+raw-cpuid = "11"
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.59", features = ["Win32_UI_WindowsAndMessaging", "Win32_Foundation"] }
+
+[profile.release]
+panic = "abort"
+codegen-units = 1
+lto = true
+opt-level = 3
+strip = true
